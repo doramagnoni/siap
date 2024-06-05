@@ -25,3 +25,18 @@ class ForumPost(models.Model):  # Renamed from Post
 
     def __str__(self):
         return self.content[:50]  
+    
+class ForumPostLike(models.Model):
+    """
+    Like model for forum posts.
+    """
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(ForumPost, on_delete=models.CASCADE, related_name='likes')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        unique_together = ['owner', 'post']
+
+    def __str__(self):
+        return f'{self.owner} likes {self.post}'
