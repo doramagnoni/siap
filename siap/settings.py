@@ -52,11 +52,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',     
-    'localhost',      
-    'siap.herokuapp.com',  
-]
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -99,17 +95,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
-
-CORS_ALLOW_CREDENTIALS = True
 
 
     
