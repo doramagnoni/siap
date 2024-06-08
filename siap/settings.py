@@ -54,6 +54,11 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://siap.herokuapp.com"
+]
+
 
 # Application definition
 
@@ -93,6 +98,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  
+    'django.middleware.common.CommonMiddleware',
 ]
 
 
