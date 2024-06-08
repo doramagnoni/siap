@@ -1,6 +1,7 @@
 from django.urls import path, include
 from .views import ForumTopicList, ForumTopicDetail, ForumPostList, ForumPostDetail
 
+
 urlpatterns = [
     path('forum/topics/', ForumTopicList.as_view(), name='forum-topic-list'),
     path('forum/topics/<int:pk>/', ForumTopicDetail.as_view(), name='forum-topic-detail'),

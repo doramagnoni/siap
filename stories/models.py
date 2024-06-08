@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User  
 from cloudinary.models import CloudinaryField
+from django.utils import timezone
 
 class Story(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     

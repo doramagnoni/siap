@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import root_route
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 
 urlpatterns = [
@@ -23,13 +27,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
 
-    
-    path('profiles/', include('profiles.urls')),
-    path('posts/', include('posts.urls')),
-    path('comments/', include('comments.urls')),
-    path('likes/', include('likes.urls')),
-    path('followers/', include('followers.urls')),
-    path('stories/', include('stories.urls')),
-    path('forum/', include('forum.urls')),
+
+    path('', include('profiles.urls')),
+    path('', include('posts.urls')),
+    path('', include('comments.urls')),
+    path('', include('likes.urls')),
+    path('', include('followers.urls')),
+    path('', include('stories.urls')),
+    path('', include('forum.urls')),
 ]
+

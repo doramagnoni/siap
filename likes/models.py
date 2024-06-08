@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from posts.models import Post
 from stories.models import Story
 
@@ -11,7 +12,7 @@ class Like(models.Model):
         Post, related_name='likes', on_delete=models.CASCADE
     )
     
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=timezone.now)
 
 
     class Meta:
@@ -28,8 +29,8 @@ class StoryLike(models.Model):
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     story = models.ForeignKey(Story, related_name='likes', on_delete=models.CASCADE)  
-    created_at = models.DateTimeField(auto_now_add=True)
-
+    created_at = models.DateTimeField(default=timezone.now)
+                                      
     class Meta:
         ordering = ['-created_at']
         unique_together = ['owner', 'story'] 
