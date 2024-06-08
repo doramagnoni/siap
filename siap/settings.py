@@ -60,6 +60,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://siap-9ff06f350cf8.herokuapp.com" 
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 
 # Application definition
 
