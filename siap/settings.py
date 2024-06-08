@@ -56,7 +56,8 @@ ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://siap.herokuapp.com"
+    "http://127.0.0.1:3000" 
+    "https://siap-9ff06f350cf8.herokuapp.com" 
 ]
 
 
